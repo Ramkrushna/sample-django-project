@@ -1,0 +1,62 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.db
+*.sqlite3
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+db.sqlite3
+/media
+/static
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+
+# Django migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# Coverage reports
+.coverage
+.coverage.*
+nosetests.xml
+tox.ini
+*.mo
+*.pot
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Sentry configuration
+sentry.conf.py
+
+# Ignore secret files
+*.env
+*.env.*
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Local development files
+local_settings.py
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db

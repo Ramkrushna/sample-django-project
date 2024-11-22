@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>{% block title %}Student Management Portal{% endblock %}</title>
+    <style>
+        .navbar-custom {
+    background-color: #563d7c; /* Purple background color */
+    color: white; /* Set text color to white */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: white; /* Set the color of nav links to white */
+}
+
+.navbar-custom .navbar-brand {
+    color: white; /* Set the color of the navbar brand to white */
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-color: white; /* Make the navbar toggle icon white */
+}
+        /* Ensures the body takes full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Ensures content fills the available space and footer stays at the bottom */
+        .content-wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        /* Sticky Footer Style */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar Section -->
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Student Management Portal</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'list_students' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Message Alerts -->
+        <div>
+            {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- Page-specific Content -->
+        <div class="container mt-4">
+            {% block content %}
+            <!-- Page-specific content will be injected here -->
+            {% endblock %}
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 Student Management Portal. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
